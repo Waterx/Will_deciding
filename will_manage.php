@@ -4,10 +4,10 @@ var_dump($_SESSION);
 include("db.php");
 
 $sql_search = "SELECT will_submit.*,stu.name FROM will_submit,stu 
-                WHERE will_submit.id=stu.id;";
+                WHERE will_submit.id=stu.id ORDER BY id ASC;";
 
 $info_submit=$mysqli->query($sql_search);
-var_dump($info_submit);
+//var_dump($info_submit);
 
 ?>
 
@@ -23,6 +23,7 @@ var_dump($info_submit);
 <tr>
 <?php
 while($row = $info_submit->fetch_assoc()){
+  var_dump($row);
   echo"<tr>";
   echo"<td>$row[id]</td>";
   echo"<td>$row[name]</td>";
@@ -34,6 +35,10 @@ while($row = $info_submit->fetch_assoc()){
 ?>
 </tr>
 </table>
+<br>
+<form action = "will_sort.php">
+<input type="submit" value="执行分流"> 
+</form?
 </html>
 
 
