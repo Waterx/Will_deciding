@@ -1,5 +1,11 @@
-<html> 
-<body http://www.jb51.net','脚本之家','fullscreen');">; 
-<b>www.jb51.net</b> 
-</body> 
-</html> 
+<?php
+
+$count = 0;
+for($i=0;$i<5;$i++){
+    $count++;
+}
+
+var_dump($count);
+
+
+?>
