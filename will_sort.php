@@ -89,7 +89,9 @@ while($row = $result->fetch_assoc()){
     $sql_notnullmajor = "SELECT * FROM major WHERE num_of_stu != 0";
     $notnullmajor = $mysqli->query($sql_notnullmajor)->fetch_assoc();
     var_dump($notnullmajor);
-    
+    $add_enroll = "INSERT INTO `enroll` (`id`, `performance`, `major_id`) 
+            VALUES ('{row['id']}', '{$stu_info['performance']}', '{$notnullmajor['major_id']}')";//???双引号解决
+            $is = $mysqli->query($add_enroll);
 
 }
 
