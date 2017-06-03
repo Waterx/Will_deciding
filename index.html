@@ -2,14 +2,23 @@
 <head>
     <title>登陆</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="background.css">
+    <link rel="stylesheet" type="text/css" href="button.css">
+    <link rel="stylesheet" type="text/css" href="ipbox.css">
 </head>
 <body>
+    <div class="block">
+    <h2>专业分流填报系统</h2>
     <form action="login.php" method="POST">
-
-        Account:<input type="text" name="account"><br>
-
-        Password:<input type="password" name="password"><br>
-        
-        <input type="submit" value="Submit">
+        <div class="ipbox">
+        账号:<br><input type="text" name="account"><br>
+        </div>
+        <div class="ipbox">
+        密码:<br><input type="password" name="password" class="ipbox.css"><br>
+        </div>
+        <div class="ipbox">
+        <input type="submit" value="登陆" class="button">
+        </div>
     </form>
+    </div>
 </body>

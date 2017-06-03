@@ -1,0 +1,17 @@
+
+
+.background{
+    background-image:url(badge.png);
+    background-repeat:repeat;
+    background-position:left center;
+}
+
+.block{
+    margin:auto;
+    padding: 150px 140px 150px 160px;
+    width:15%;
+    border:3px solid rgb(22, 77, 100);
+    background-image:url(badge.png);
+    background-repeat:no-repeat;
+    background-position:left center;
+}
