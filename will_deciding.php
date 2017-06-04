@@ -3,6 +3,7 @@
         <meta charset="utf-8">
         <title>志愿填报</title>
         <link rel="stylesheet" type="text/css" href="button.css">
+        <link rel="stylesheet" type="text/css" href="tables.css">
     </head>
     <?php
         //以下为查找并显示学生信息
@@ -57,7 +58,7 @@
                 $major = $mysqli->query($sql_major)->fetch_assoc();
                 $major_name["$i"] = $major['major'];
             }
-            echo "<table border=1><th>第一志愿</th>
+            echo "<table id='tables'><th>第一志愿</th>
             <th>第二志愿</th>
             <th>第三志愿</th>";
             echo"<tr>";

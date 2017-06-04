@@ -1,7 +1,7 @@
 <?php
 session_start();
-var_dump($_POST['will1']);
-var_dump($_SESSION);
+//var_dump($_POST['will1']);
+//var_dump($_SESSION);
 include("db.php");
 //以下为查找该账号是否提交过
 $sql_search = "SELECT * FROM will_submit WHERE id='{$_SESSION['account']}'";
