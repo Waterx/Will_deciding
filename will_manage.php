@@ -24,8 +24,6 @@ $info_submit=$mysqli->query($sql_search);
     <th>第二志愿</th>
     <th>第三志愿</th>
   </tr>
-  <tr>
-
 <?php
   while($row = $info_submit->fetch_assoc()){
     //var_dump($row);
@@ -44,13 +42,37 @@ $info_submit=$mysqli->query($sql_search);
     echo"</tr>";
   }
 ?>
-  </tr>
   </table>
 
   <br>
   <form action = "will_sort.php">
   <input type="submit" value="执行分流" class="button"> 
   </form>
+
+
+<h2>各专业情况</h2>
+  <table id="tables">
+  <tr>
+    <th>专业</th>
+    <th>剩余名额</th>
+  </tr>
+  
+
+<?php
+//对已分流同学按照专业id升序排列
+  $sql_search="SELECT * FROM major";
+  $result = $mysqli->query($sql_search);
+  while($row = $result->fetch_assoc()){
+    //var_dump($row);
+    echo"<tr>";
+    echo"<td>$row[major]</td>";
+    echo"<td>$row[num_of_stu]</td>";
+    echo"</tr>";
+  }
+?>
+</table>
+
+
 
   <h2>已分流同学</h2>
   <table id="tables">
