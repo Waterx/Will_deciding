@@ -124,13 +124,12 @@ $info_submit=$mysqli->query($sql_search);
     echo"</tr>";
   }
 ?>
-
   </table>
 
-<?php
-
-
-?>  
+<br>
+  <form action = "will_special.php">
+  <input type="submit" value="分配" class="button"> 
+  </form>
 </html>
 
 

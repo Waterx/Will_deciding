@@ -112,5 +112,5 @@
         echo"<input type='submit' value='特殊申请' class='button'>←需要特殊申请的同学请点击特殊申请按钮";
         }//它是前面else条件的括号
         ?>
-
+        </form>
 </html>
