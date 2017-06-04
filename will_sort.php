@@ -13,7 +13,7 @@ SELECT will_submit.*,stu.name,stu.performance FROM will_submit,stu
 WHERE will_submit.id=stu.id ORDER BY stu.performance DESC";
 
 $info_view = $mysqli->query($sql_creatview);//创建视图
-var_dump($info_view);
+//var_dump($info_view);
 ?>
 
 <html>
@@ -67,6 +67,7 @@ for($i=1;$i<=3;$i++){
                 echo"<td>$stu_info[name]</td>";
                 echo"<td>$major_name</td>";
                 echo"<td>$stu_info[performance]</td>";
+                echo"<tr>";
             }
             //then search id in will_submit,delete them.!!!not delete in view,only
             //delete it in base table is valid
@@ -83,16 +84,30 @@ for($i=1;$i<=3;$i++){
 }// i循环的括号
 
 //以下的功能为把剩余的同学分配给还有未招满的专业
-$sql_search="SELECT * FROM will_submit";
+$sql_search="SELECT * FROM connect";
 $result = $mysqli->query($sql_search);
 while($row = $result->fetch_assoc()){
     $sql_notnullmajor = "SELECT * FROM major WHERE num_of_stu != 0";
     $notnullmajor = $mysqli->query($sql_notnullmajor)->fetch_assoc();
-    var_dump($notnullmajor);
+    //var_dump($notnullmajor);
     $add_enroll = "INSERT INTO `enroll` (`id`, `performance`, `major_id`) 
-            VALUES ('{row['id']}', '{$stu_info['performance']}', '{$notnullmajor['major_id']}')";//???双引号解决
-            $is = $mysqli->query($add_enroll);
-
+            VALUES ('{$row['id']}', '{$row['performance']}', '{$notnullmajor['major_id']}')";//???双引号解决
+    
+    $is = $mysqli->query($add_enroll);
+    //var_dump($is);
+    $sql_del = "DELETE FROM will_submit WHERE id = '{$row['id']}'";
+    $is2 = $mysqli->query($sql_del);
+    //var_dump($is2);
+    if($is2){
+        $sql_update_num = "UPDATE major SET num_of_stu = num_of_stu-1 WHERE major_id = {$notnullmajor['major_id']};";
+        $is = $mysqli->query($sql_update_num);
+        }
+    echo"<tr>";
+    echo"<td>$row[id]</td>";
+    echo"<td>$row[name]</td>";
+    echo"<td>$notnullmajor[major]</td>";
+    echo"<td>$row[performance]</td>";
+    echo"<tr>";
 }
 
 
